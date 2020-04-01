@@ -47,15 +47,15 @@
 				<ol class="breadcrumb w_breadcrumb">
 				  <li><a href="#">首页</a></li>
 				  <li><a href="#">文章</a></li>
-				  <li class="active">我的个人博客之——阿里云空间选择</li>
+				  <li class="active" th:text="${articleDetailVo.title}">我的个人博客之——阿里云空间选择</li>
 				  <span class="w_navbar_tip">我们长路漫漫，只因学无止境。</span>
 				</ol>
 				
 				<div class="col-lg-9 col-md-9 w_main_left">
 					<div class="panel panel-default">
 						<div class="panel-body">
-							<h2 class="c_titile">我的个人博客之——阿里云空间选择</h2>
-							<p class="box_c"><span class="d_time">发布时间：2017-02-05</span><span>编辑：<a href="mailto:wfyv@qq.com">wilco</a></span><span>阅读（88646）</span></p>
+							<h2 class="c_titile" th:text="${articleDetailVo.title}">我的个人博客之——阿里云空间选择</h2>
+							<p class="box_c"><span class="d_time">发布时间：<span th:text="${articleDetailVo.releaseDate}"></span> </span><span>编辑：<span th:text="${articleDetailVo.editName}">wilco</span></span><span>阅读（<span th:text="${articleDetailVo.readNumber}"></span>）</span></p>
 							<ul class="infos">
 								      <p>之前服务器放在电信机房， 联通用户访问速度很不稳定，经常出现访问速度慢的问题，换到阿里云解决了之前的问题。很多人都问我的博客选得什么空间，一年的费用得多少钱，今天我列个表出来，供大家参考。</p>
 								<p>&nbsp;<img src="img/slider/at1.png" alt="个人博客阿里云空间选择" width="700" height="886"></p>
