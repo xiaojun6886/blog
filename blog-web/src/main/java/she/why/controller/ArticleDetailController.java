@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import she.why.bean.ArticleDetailVo;
 import she.why.entity.ArticleDetailEntity;
+import she.why.resultUtils.BaseResult;
 import she.why.service.ArticleDetailService;
 
 import java.io.UnsupportedEncodingException;
