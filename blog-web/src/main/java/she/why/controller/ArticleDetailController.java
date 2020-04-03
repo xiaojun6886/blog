@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import she.why.bean.ArticleDetailVo;
 import she.why.entity.ArticleDetailEntity;
-import she.why.resultUtils.BaseResult;
 import she.why.service.ArticleDetailService;
 
 /**
