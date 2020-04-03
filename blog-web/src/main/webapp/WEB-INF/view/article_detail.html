@@ -13,6 +13,7 @@
 <script th:src="@{/static/js/bootstrap.min.js}"></script>
 <!--<script type="text/javascript" src="plugin/jquery.page.js"></script>-->
 <script th:src="@{/static/js/common.js}"></script>
+<script th:src="@{/static/js/blog/article_detail.js}"></script>
 
 
 <body>
@@ -47,16 +48,16 @@
 				<ol class="breadcrumb w_breadcrumb">
 				  <li><a href="#">首页</a></li>
 				  <li><a href="#">文章</a></li>
-				  <li class="active" th:text="${articleDetailVo.title}">我的个人博客之——阿里云空间选择</li>
+				  <li class="active" id="Detail_title">我的个人博客之——阿里云空间选择</li>
 				  <span class="w_navbar_tip">我们长路漫漫，只因学无止境。</span>
 				</ol>
 				
 				<div class="col-lg-9 col-md-9 w_main_left">
 					<div class="panel panel-default">
 						<div class="panel-body">
-							<h2 class="c_titile" th:text="${articleDetailVo.title}">我的个人博客之——阿里云空间选择</h2>
-							<p class="box_c"><span class="d_time">发布时间：<span th:text="${articleDetailVo.releaseDate}"></span> </span><span>编辑：<span th:text="${articleDetailVo.editName}">wilco</span></span><span>阅读（<span th:text="${articleDetailVo.readNumber}"></span>）</span></p>
-							<ul class="infos" th:text="${articleDetailVo.content}">
+							<h2 class="c_titile" id="article_Detail_title">我的个人博客之——阿里云空间选择</h2>
+							<p class="box_c"><span class="d_time">发布时间: <span id="release_date"></span> </span><span>编辑：<span id="edit_name"></span></span><span>阅读（<span id="read_number"></span>）</span></p>
+							<ul class="infos" id="content">
 								      <p>之前服务器放在电信机房， 联通用户访问速度很不稳定，经常出现访问速度慢的问题，换到阿里云解决了之前的问题。很多人都问我的博客选得什么空间，一年的费用得多少钱，今天我列个表出来，供大家参考。</p>
 								<p>&nbsp;<img th:src="@{static/img/slider/at1.png}" alt="个人博客阿里云空间选择" width="700" height="886"></p>
 								<p>对于访问量不大，小型网站带宽可以选择1M的，每个月<span class="cny" style="margin: 0px 1px; padding: 0px; border: 0px; font-family: Arial; line-height: 20px; font-size: 20px; vertical-align: baseline; color: rgb(255, 102, 0); white-space: nowrap;">¥</span><span class="money" style="margin: 0px; padding: 0px; border: 0px; font-family: 微软雅黑, 'Microsoft Yahei', 'Hiragino Sans GB', tahoma, arial, 宋体; line-height: 20px; font-size: 20px; vertical-align: baseline; color: rgb(255, 102, 0); white-space: nowrap;">56.80</span>一年也就568块钱，每天投入也就不到2块钱。</p>
@@ -92,9 +93,9 @@
 						<div class="panel-body">
 							<center><div id="cyReward" role="cylabs" data-use="reward" sid="5eab7e4c363e4cb8bed0efa3604e6b42"></div></center>
 							<!--<div id="cyEmoji" role="cylabs" data-use="emoji" sid="5eab7e4c363e4cb8bed0efa3604e6b42"></div>-->
-							<script type="text/javascript" charset="utf-8" src="https://changyan.itc.cn/js/lib/jquery.js"></script>
+							<!--<script type="text/javascript" charset="utf-8" src="https://changyan.itc.cn/js/lib/jquery.js"></script>
 							<script type="text/javascript" charset="utf-8" src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cysPwLFm1"></script>
-							
+							-->
 							
 							<!--PC版-->
 							<!--<div id="SOHUCS" sid="5eab7e4c363e4cb8bed0efa3604e6b42"></div>
@@ -109,7 +110,7 @@
 								<div class="ds-thread" data-thread-key="testarticle" data-title="我的个人博客之——阿里云空间选择" data-url="http://127.0.0.1:8020/wilco/article_detail.html"></div>
 							<!-- 多说评论框 end -->
 							<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-							<script type="text/javascript">
+							<!--<script type="text/javascript">
 							var duoshuoQuery = {short_name:"wfyvv"};
 								(function() {
 									var ds = document.createElement('script');
@@ -119,7 +120,7 @@
 									(document.getElementsByTagName('head')[0] 
 									 || document.getElementsByTagName('body')[0]).appendChild(ds);
 								})();
-								</script>
+								</script>-->
 							<!-- 多说公共JS代码 end -->
 							
 						</div>
@@ -184,3 +185,6 @@
 	<!--<div class="snow-container"></div>-->
 </body>
 </html>
+<div style="display: none">
+	<input id="blogDetailIdTemp" th:value="${blogDetailId}"/>
+</div>
