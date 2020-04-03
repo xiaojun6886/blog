@@ -3,6 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<title>风宇个人博客</title>
+
+	<style type="text/css">
+		.toolbar {
+			border: 1px solid #ccc;
+		}
+		.text {
+			border: 1px solid #ccc;
+			height: 400px;
+		}
+	</style>
+
 </head>
 
 <link th:href="@{/static/css/bootstrap.min.css}" rel="stylesheet">
@@ -13,7 +24,7 @@
 <script th:src="@{/static/js/bootstrap.min.js}"></script>
 <script type="text/javascript" th:src="@{/static/plugin/jquery.page.js}"></script>
 <script th:src="@{/static/js/common.js}"></script>
-
+<script th:src="@{/static/js/wangEditor.min.js}"></script>
 
 
 <body>
@@ -52,9 +63,14 @@
 				</ol>
 				
 				<div class="col-lg-9 col-md-9 w_main_left">
-					
-					
-					
+
+					<span style="color: #ac2925">你想对博主说</span>
+					<div id="div1" class="toolbar"></div>
+					<div style="padding: 5px 0; color: #ccc"></div>
+					<div id="div2" class="text"> <!--可使用 min-height 实现编辑区域自动增加高度-->
+						<p>请输入内容</p>
+					</div>
+					<button id="btn2">获取text</button>
 					<!--PC版-->
 					<!--<div id="SOHUCS" sid="5eab7e4c363e4cb8bed0efa3604e6b42"></div>
 					<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
@@ -79,10 +95,28 @@
 							(document.getElementsByTagName('head')[0] 
 							 || document.getElementsByTagName('body')[0]).appendChild(ds);
 						})();
+
+
+                    /**
+					 * 文本编辑器
+                     */
+                    var E = window.wangEditor
+                    var editor1 = new E('#div1', '#div2')  // 两个参数也可以传入 elem 对象，class 选择器
+                    editor1.create()
+
+
+
+                    document.getElementById('btn2').addEventListener('click', function () {
+                        // 读取 text
+                        alert("哈哈")
+                    }, false)
+
+
+
 						</script>
+					<script type="text/javascript" src="/wangEditor.min.js"></script>
 					<!-- 多说公共JS代码 end -->
 
-					
 					
 				</div>
 				<div class="col-lg-3 col-md-3 w_main_right">
