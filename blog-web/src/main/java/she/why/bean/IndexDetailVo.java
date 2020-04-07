@@ -16,6 +16,7 @@ public class IndexDetailVo {
     private String title;           //标题
     private String label;           //标签
     private String articleZhai;      //文章摘要
+    private String content;          //文章内容
     private String status;          //文章状态 0 正常 1 删除
     private Timestamp releaseDate;  //发布时间
     private String editName;        //编辑者

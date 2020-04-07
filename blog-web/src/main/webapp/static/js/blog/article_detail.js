@@ -1,8 +1,9 @@
 $(function(){
     var blogDetailId = $("#blogDetailIdTemp").val();
+    var label = $("#labelTemp").val();
     $.ajax({
-        url:"/article/detail/ajaxGetArticleDetail?blogDetailId="+blogDetailId,
-        contentType:"application/json",
+        url:"/article/detail/ajaxGetArticleDetail?blogDetailId="+blogDetailId+"&label="+label,
+        contentType:"application/x-www-form-urlencoded;charset=UTF-8",
         success:function (data) {
             if (data != null) {
                 var title = data.title;

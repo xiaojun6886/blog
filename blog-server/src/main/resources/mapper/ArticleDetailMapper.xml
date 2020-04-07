@@ -3,12 +3,18 @@
 
 <mapper namespace="she.why.mapper.ArticleDetailMapper">
 
-    <select id="queryArticleDetail" parameterType="java.lang.String" resultType="she.why.entity.ArticleDetailEntity">
+    <select id="queryArticleDetail" resultType="she.why.entity.IndexDetailEntity">
         select *
         from
-        article_detail
-        where
-        blog_detail_id = #{blogDetailId};
+        index_detail
+        where 1=1
+        <if test="blogDetailId != null and !blogDetailId.isEmpty()">
+        and blog_detail_id = #{blogDetailId}
+        </if>
+        <if test="label != null and !label.isEmpty()">
+        and label like '%${label}%'
+        </if>
+        LIMIT 1
     </select>
 
 </mapper>

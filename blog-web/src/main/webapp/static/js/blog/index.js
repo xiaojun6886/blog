@@ -3,41 +3,68 @@ $(function () {
    $.ajax({
        url:"/ajaxGetIndexDetail",
        contentType:"application/json",
-       success:function (dataList) {
-           if (dataList != null && dataList.length>0) {
+       success:function (datas) {
+           if (datas != null && datas.length>0) {
+               var dataList = datas.slice(0,10);
                var labelCount = "";
                for (var i=0; i<dataList.length;i++) {
                    var title = dataList[i].title;
+                   var blogDetailId = dataList[i].blogDetailId;
                    var articleZhai = dataList[i].articleZhai;
                    var releaseDate = dataList[i].releaseDate;
-                   var editName = dataList[i].createName;
+                   var editName = dataList[i].editName;
                    var readNumber = dataList[i].readNumber;
                    var label = dataList[i].label;
                    labelCount += dataList[i].label+",";
-
-                   var arr = label.split(",");
-                   for(var v = 0, len = arr.length; v < len; v++){
-                       var popContent = '<a class="label label-default">'+arr[v]+'</a>';
-                       $("#label"+i).append(popContent);
-                   }
-
-                    $("#index_title"+i).html(title);
-                    $("#title"+i).html(title);
-                    $("#articleZhai"+i).html(articleZhai);
-                    $("#releaseDate"+i).html(getTsFormatDate(releaseDate));
-                    $("#editName"+i).html(editName);
-                    $("#readNumber"+i).html(readNumber);
+                   //展示每一篇文章的标题和文章摘要等
+                   showIndexDetail(title,blogDetailId,articleZhai,releaseDate,editName,readNumber,i);
+                   //首页每一篇文章的标签
+                   showLabel(label,i);
                }
-               var split = labelCount.split(",");
-               var unique = unqiue3(split);
-               for(var s = 0, len = unique.length; s < len; s++){
-                   var labelContent = '<a class="label label-default">'+unique[s]+'</a>';
-                   $(".labelList").append(labelContent);
-               }
+               //热门标签
+               showSumLabel(labelCount);
            }
        }
    })
 });
+
+function showIndexDetail(title,blogDetailId,articleZhai,releaseDate,editName,readNumber,i) {
+    if (i<6) {
+        var a = "label"+i;
+        var hrefs = "/article/detail/blogDetailId/"+blogDetailId;
+        var articheZhais = '<div class="panel panel-default">' +
+            '<div class="panel-body">' +
+            '<h4><a class="title" href='+hrefs+' target="_blank">' + title + '</a></h4>' +
+            '<p id='+a+'></p>' +
+            '<p class="overView"><a href='+hrefs+' target="_blank">' + articleZhai + '</a></p>' +
+            '<p><span class="count"><i class="glyphicon glyphicon-user"></i><a href="#">' +
+            '<span>' + editName + '</span></a></span> <span class="count">' +
+            '<i class="glyphicon glyphicon-eye-open"></i>阅读:' +
+            '<span>' + readNumber + '</span></span><span class="count">' +
+            '<i class="glyphicon glyphicon-comment">' +
+            '</i>评论:18</span><span class="count"><i class="glyphicon glyphicon-time">' +
+            '</i><span>' + getTsFormatDate(releaseDate) + '</span></span></p></div></div>';
+        $("#index_detail").append(articheZhais);
+    }
+}
+
+function showLabel(label,i) {
+    var arr = label.split(",");
+    for(var v = 0, len = arr.length; v < len; v++){
+        var popContent = '<a class="label label-default">'+arr[v]+'</a>';
+        $("#label"+i).append(popContent);
+    }
+}
+
+function showSumLabel(labelCount) {
+    var split = labelCount.split(",");
+    var unique = unqiue3(split);
+    for(var s = 0, len = unique.length; s < len; s++){
+        var queryHref =  "/article/detail/label/"+ unique[s];
+        var labelContent = '<a href='+queryHref+' target="_blank" class="label label-default">'+unique[s]+'</a>';
+        $(".labelList").append(labelContent);
+    }
+}
 
 //过滤重复的标签
 function unqiue3(array){
@@ -49,7 +76,6 @@ function unqiue3(array){
     for(key in cache){
         myresult.push(key);
     }
-
     return myresult;
 }
 

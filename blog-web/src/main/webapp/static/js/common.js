@@ -14,6 +14,7 @@ var backToTopFun = function() {
 		backToTopFun();
 	});
 
+//时间戳转时间格式
 function getTsFormatDate(timeStamp) {
     var date = new Date(timeStamp);
     //console.log(date); 结果为：Tue Apr 02 2019 07:49:23 GMT+0800 (中国标准时间)
@@ -30,4 +31,25 @@ function getTsFormatDate(timeStamp) {
     var currentdate = year + seperator1 + month + seperator1 + strDate;
     return currentdate;
 }
+
+//异步加载最新发布数据
+$(function () {
+    $.ajax({
+        url:"/ajaxGetIndexDetail",
+        contentType:"application/json",
+        success:function (datas) {
+            if (datas != null && datas.length>0) {
+                var dataList = datas.slice(0,10);
+                for (var i=0; i<dataList.length;i++) {
+                    var title = dataList[i].title;
+                    var blogDetailId = dataList[i].blogDetailId;
+                    var hrefId =  "/article/detail/blogDetailId/"+ blogDetailId;
+                    var titleContent =
+                        '<li><a href='+hrefId+' target="_blank">'+title+'</a></li>';
+                    $("#titleCon").append(titleContent);
+                }
+            }
+        }
+    })
+});
 
