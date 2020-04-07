@@ -2,24 +2,21 @@ package she.why.controller;
 
 import com.alibaba.druid.support.json.JSONUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import she.why.bean.IndexDetailVo;
 import she.why.entity.IndexDetailEntity;
+import she.why.resultUtils.BaseResult;
 import she.why.service.IndexDetailService;
 
 import java.lang.ref.PhantomReference;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by xiaojun on 2020/3/31.
@@ -60,4 +57,10 @@ public class HomeController {
         }
         return indexDetailVoList;
     }
+
+        @RequestMapping ("/ajaxGetText")
+        @ResponseBody
+        public String getText( @RequestParam String usertext ){
+                return "";
+        }
 }

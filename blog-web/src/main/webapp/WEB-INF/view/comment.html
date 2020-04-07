@@ -68,7 +68,6 @@
 					<div id="div1" class="toolbar"></div>
 					<div style="padding: 5px 0; color: #ccc"></div>
 					<div id="div2" class="text"> <!--可使用 min-height 实现编辑区域自动增加高度-->
-						<p>请输入内容</p>
 					</div>
 					<button id="btn2">获取text</button>
 					<!--PC版-->
@@ -101,16 +100,29 @@
 					 * 文本编辑器
                      */
                     var E = window.wangEditor
-                    var editor1 = new E('#div1', '#div2')  // 两个参数也可以传入 elem 对象，class 选择器
-                    editor1.create()
+                    var editor = new E('#div1', '#div2')  // 两个参数也可以传入 elem 对象，class 选择器
+                    editor.create()
+
 
 
 
                     document.getElementById('btn2').addEventListener('click', function () {
                         // 读取 text
-                        alert("哈哈")
-                    }, false)
+						var text = {'usertext':editor.txt.text()};
+						$.ajax({
+                          	url:"/ajaxGetText",
+							type:'post',
+							data:text,
+                            success: function (data) {
+                                if (data.code == "200") {
+                                    alert("发表成功");
+                                } else {
+                                    alert("发表失败");
+                                }
+                            }
+						})
 
+                    }, false)
 
 
 						</script>
