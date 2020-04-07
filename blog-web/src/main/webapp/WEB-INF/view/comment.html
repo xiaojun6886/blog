@@ -69,7 +69,7 @@
 					<div style="padding: 5px 0; color: #ccc"></div>
 					<div id="div2" class="text"> <!--可使用 min-height 实现编辑区域自动增加高度-->
 					</div>
-					<button id="btn2">获取text</button>
+					<button id="btn2">发表留言</button>
 					<!--PC版-->
 					<!--<div id="SOHUCS" sid="5eab7e4c363e4cb8bed0efa3604e6b42"></div>
 					<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
@@ -110,7 +110,7 @@
                         // 读取 text
 						var text = {'usertext':editor.txt.text()};
 						$.ajax({
-                          	url:"/ajaxGetText",
+                          	url:"/comment/ajaxGetText",
 							type:'post',
 							data:text,
                             success: function (data) {

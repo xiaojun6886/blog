@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import she.why.bean.IndexDetailVo;
 import she.why.entity.IndexDetailEntity;
 import she.why.resultUtils.BaseResult;
+import she.why.resultUtils.ResultUtils;
+import she.why.service.CommentService;
 import she.why.service.IndexDetailService;
 
 import java.lang.ref.PhantomReference;
@@ -57,10 +59,4 @@ public class HomeController {
         }
         return indexDetailVoList;
     }
-
-        @RequestMapping ("/ajaxGetText")
-        @ResponseBody
-        public String getText( @RequestParam String usertext ){
-                return "";
-        }
 }
