@@ -2,6 +2,7 @@ package she.why.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import she.why.entity.CommentDetailEntity;
 import she.why.mapper.CommentMapper;
 import she.why.service.CommentService;
 
@@ -12,7 +13,7 @@ public class CommentImpl implements CommentService {
     private CommentMapper commentMapper;
 
     @Override
-    public int insertMessage(String message) {
-      return   commentMapper.insertMessage(message);
+    public int insertMessage(CommentDetailEntity commentDetailEntity) {
+      return   commentMapper.insertMessage(commentDetailEntity);
     }
 }

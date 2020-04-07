@@ -10,7 +10,7 @@
            message_text
           )
         VALUES (
-            #{message}
+            #{commentDetailEntity.messageText}
            );
    </insert>
 
