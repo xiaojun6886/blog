@@ -1,14 +1,14 @@
 /**
-  * 主页表
+  * 文章表
  */
-create table `index_detail` (
+create table `blog_article` (
  `id` bigint  NOT NULL AUTO_INCREMENT,
  `blog_detail_id` varchar(200) comment "详情id",
  `user_id` varchar(200) comment "用户id",
  `user_name` varchar(200) comment "用户名",
  `title` varchar(200) comment "标题",
  `label` varchar(200) comment "标签",
- `article_zhai` blob comment "文章摘要",
+ `article_summary` blob comment "文章摘要",
  `content` blob comment "文章内容",
  `status` varchar(200) comment "文章状态 0 正常 1 删除",
  `read_number` bigint comment "阅读数",
