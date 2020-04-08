@@ -7,5 +7,5 @@ import she.why.entity.BlogArticleEntity;
  */
 public interface ArticleDetailService {
 
-    BlogArticleEntity getArticleDetail(String blogDetailId, String label);
+    BlogArticleEntity getArticleDetail(String blogDetailId);
 }

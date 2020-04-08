@@ -7,14 +7,8 @@
         select *
         from
         blog_article
-        where 1=1
-        <if test="blogDetailId != null and !blogDetailId.isEmpty()">
-        and blog_detail_id = #{blogDetailId}
-        </if>
-        <if test="label != null and !label.isEmpty()">
-        and label like '%${label}%'
-        </if>
-        LIMIT 1
+        where
+        blog_detail_id = #{blogDetailId}
     </select>
 
 </mapper>

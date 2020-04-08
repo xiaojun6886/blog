@@ -43,7 +43,7 @@ $(function () {
                 for (var i=0; i<dataList.length;i++) {
                     var title = dataList[i].title;
                     var blogDetailId = dataList[i].blogDetailId;
-                    var hrefId =  "/article/detail/blogDetailId/"+ blogDetailId;
+                    var hrefId =  "/article/detail/"+ blogDetailId;
                     var titleContent =
                         '<li><a href='+hrefId+' target="_blank">'+title+'</a></li>';
                     $("#titleCon").append(titleContent);

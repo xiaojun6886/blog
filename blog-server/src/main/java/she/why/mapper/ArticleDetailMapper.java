@@ -8,6 +8,6 @@ import she.why.entity.BlogArticleEntity;
  */
 public interface ArticleDetailMapper {
 
-    BlogArticleEntity queryArticleDetail(@Param("blogDetailId") String blogDetailId, @Param("label") String label);
+    BlogArticleEntity queryArticleDetail(@Param("blogDetailId") String blogDetailId);
 
 }

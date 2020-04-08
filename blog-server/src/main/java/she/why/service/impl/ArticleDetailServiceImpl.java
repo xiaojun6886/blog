@@ -17,7 +17,7 @@ public class ArticleDetailServiceImpl implements ArticleDetailService {
     private ArticleDetailMapper articleDetailMapper;
 
     @Override
-    public BlogArticleEntity getArticleDetail(String blogDetailId, String label) {
-         return articleDetailMapper.queryArticleDetail(blogDetailId,label);
+    public BlogArticleEntity getArticleDetail(String blogDetailId) {
+         return articleDetailMapper.queryArticleDetail(blogDetailId);
     }
 }

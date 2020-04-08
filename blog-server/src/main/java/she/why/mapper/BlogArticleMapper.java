@@ -1,5 +1,6 @@
 package she.why.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import she.why.entity.BlogArticleEntity;
 
 import java.util.List;
@@ -9,5 +10,5 @@ import java.util.List;
  */
 public interface BlogArticleMapper {
 
-    List<BlogArticleEntity> queryIndexDetail();
+    List<BlogArticleEntity> queryIndexDetail(@Param("label") String label);
 }

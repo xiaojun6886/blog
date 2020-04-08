@@ -31,7 +31,7 @@ $(function () {
 function showIndexDetail(title,blogDetailId,articleSummary,releaseDate,editName,readNumber,i) {
     if (i<6) {
         var a = "label"+i;
-        var hrefs = "/article/detail/blogDetailId/"+blogDetailId;
+        var hrefs = "/article/detail/"+blogDetailId;
         var articheZhais = '<div class="panel panel-default">' +
             '<div class="panel-body">' +
             '<h4><a class="title" href='+hrefs+' target="_blank">' + title + '</a></h4>' +
@@ -60,7 +60,7 @@ function showSumLabel(labelCount) {
     var split = labelCount.split(",");
     var unique = unqiue3(split);
     for(var s = 0, len = unique.length; s < len; s++){
-        var queryHref =  "/article/detail/label/"+ unique[s];
+        var queryHref =  "/article/"+ unique[s];
         var labelContent = '<a href='+queryHref+' target="_blank" class="label label-default">'+unique[s]+'</a>';
         $(".labelList").append(labelContent);
     }

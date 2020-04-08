@@ -1,7 +1,8 @@
 $(function(){
+    var label = $("#labelTemp").val();
     $.ajax({
-        url:"/ajaxGetIndexDetail",
-        contentType:"application/json",
+        url:"/article/ajaxGetBlogArticle?label="+label,
+        contentType:"application/x-www-form-urlencoded;charset=UTF-8",
         success:function (dataList) {
             if (dataList != null && dataList.length>0) {
                 for (var i=0;i<dataList.length;i++){

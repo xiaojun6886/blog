@@ -23,22 +23,18 @@ public class ArticleDetailController {
     @Autowired
     private ArticleDetailService articleDetailService;
 
-    @GetMapping(value = "/{pathId}/{param}")
-    public String view(@PathVariable String pathId,@PathVariable String param, Model model){
-        if ("blogDetailId".equals(pathId)) {
-            model.addAttribute("blogDetailId", param);
-        }else {
-            model.addAttribute("label", param);
-        }
+    @GetMapping(value = "/{blogDetailId}")
+    public String view(@PathVariable String blogDetailId, Model model){
+        model.addAttribute("blogDetailId", blogDetailId);
         return "article_detail";
     }
 
     @GetMapping("/ajaxGetArticleDetail")
     @ResponseBody
-    public BlogArticleVo getArticleDetail(String blogDetailId, String label) {
+    public BlogArticleVo getArticleDetail(String blogDetailId) {
         BlogArticleVo blogArticleVo = new BlogArticleVo();
         try {
-            BlogArticleEntity blogArticleEntity = articleDetailService.getArticleDetail(blogDetailId, label);
+            BlogArticleEntity blogArticleEntity = articleDetailService.getArticleDetail(blogDetailId);
             if (blogArticleEntity != null) {
                 BeanUtils.copyProperties(blogArticleEntity, blogArticleVo);
                 byte[] content = StringUtils.isEmpty(blogArticleEntity.getContent()) ? null : blogArticleEntity.getContent();

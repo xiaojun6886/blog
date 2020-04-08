@@ -33,10 +33,10 @@ public class HomeController {
 
     @GetMapping(value = "/ajaxGetIndexDetail")
     @ResponseBody
-    public List<BlogArticleVo> getIndexDetailVo(){
+    public List<BlogArticleVo> getIndexDetailVo(String label){
         List<BlogArticleVo> blogArticleVoList = new ArrayList<>();
         try {
-           List<BlogArticleEntity> blogArticleEntityList = blogArticleService.getIndexDetailEntity();
+           List<BlogArticleEntity> blogArticleEntityList = blogArticleService.getIndexDetailEntity(label);
            if (!CollectionUtils.isEmpty(blogArticleEntityList)) {
                for (BlogArticleEntity blogArticleEntity : blogArticleEntityList) {
                    BlogArticleVo blogArticleVo = new BlogArticleVo();

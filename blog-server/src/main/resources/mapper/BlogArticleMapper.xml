@@ -3,10 +3,14 @@
 
 <mapper namespace="she.why.mapper.BlogArticleMapper">
 
-    <select id="queryIndexDetail" resultType="she.why.entity.BlogArticleEntity">
+    <select id="queryIndexDetail" parameterType="java.lang.String" resultType="she.why.entity.BlogArticleEntity">
         SELECT *
         FROM
         blog_article
+        where 1=1
+        <if test="label != null and label !=''">
+        and label like "%"#{label,jdbcType=VARCHAR}"%"
+        </if>
         ORDER BY
         create_date
     </select>

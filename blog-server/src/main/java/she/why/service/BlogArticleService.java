@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface BlogArticleService {
 
-    List<BlogArticleEntity> getIndexDetailEntity();
+    List<BlogArticleEntity> getIndexDetailEntity(String label);
 }
