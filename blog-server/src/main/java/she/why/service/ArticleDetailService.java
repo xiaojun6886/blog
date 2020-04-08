@@ -1,11 +1,11 @@
 package she.why.service;
 
-import she.why.entity.IndexDetailEntity;
+import she.why.entity.BlogArticleEntity;
 
 /**
  * Created by xiaojun on 2020/4/1.
  */
 public interface ArticleDetailService {
 
-    IndexDetailEntity getArticleDetail(String blogDetailId,String label);
+    BlogArticleEntity getArticleDetail(String blogDetailId, String label);
 }

@@ -3,10 +3,10 @@
 
 <mapper namespace="she.why.mapper.ArticleDetailMapper">
 
-    <select id="queryArticleDetail" resultType="she.why.entity.IndexDetailEntity">
+    <select id="queryArticleDetail" resultType="she.why.entity.BlogArticleEntity">
         select *
         from
-        index_detail
+        blog_article
         where 1=1
         <if test="blogDetailId != null and !blogDetailId.isEmpty()">
         and blog_detail_id = #{blogDetailId}

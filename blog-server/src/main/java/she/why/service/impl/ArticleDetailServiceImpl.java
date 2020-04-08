@@ -2,8 +2,7 @@ package she.why.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import she.why.entity.ArticleDetailEntity;
-import she.why.entity.IndexDetailEntity;
+import she.why.entity.BlogArticleEntity;
 import she.why.mapper.ArticleDetailMapper;
 import she.why.service.ArticleDetailService;
 
@@ -18,7 +17,7 @@ public class ArticleDetailServiceImpl implements ArticleDetailService {
     private ArticleDetailMapper articleDetailMapper;
 
     @Override
-    public IndexDetailEntity getArticleDetail(String blogDetailId,String label) {
+    public BlogArticleEntity getArticleDetail(String blogDetailId, String label) {
          return articleDetailMapper.queryArticleDetail(blogDetailId,label);
     }
 }

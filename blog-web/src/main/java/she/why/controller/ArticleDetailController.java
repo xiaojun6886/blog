@@ -2,22 +2,15 @@ package she.why.controller;
 
 import com.alibaba.druid.support.json.JSONUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-import she.why.bean.ArticleDetailVo;
-import she.why.bean.IndexDetailVo;
-import she.why.entity.ArticleDetailEntity;
-import she.why.entity.IndexDetailEntity;
+import she.why.bean.BlogArticleVo;
+import she.why.entity.BlogArticleEntity;
 import she.why.service.ArticleDetailService;
-
-import java.awt.*;
-import java.lang.reflect.Type;
-import java.net.URLDecoder;
 
 /**
  * Created by xiaojun on 2020/3/31.
@@ -42,24 +35,24 @@ public class ArticleDetailController {
 
     @GetMapping("/ajaxGetArticleDetail")
     @ResponseBody
-    public IndexDetailVo getArticleDetail(String blogDetailId,String label) {
-        IndexDetailVo indexDetailVo = new IndexDetailVo();
+    public BlogArticleVo getArticleDetail(String blogDetailId, String label) {
+        BlogArticleVo blogArticleVo = new BlogArticleVo();
         try {
-            IndexDetailEntity indexDetailEntity = articleDetailService.getArticleDetail(blogDetailId, label);
-            if (indexDetailEntity != null) {
-                BeanUtils.copyProperties(indexDetailEntity, indexDetailVo);
-                byte[] content = StringUtils.isEmpty(indexDetailEntity.getContent()) ? null : indexDetailEntity.getContent();
+            BlogArticleEntity blogArticleEntity = articleDetailService.getArticleDetail(blogDetailId, label);
+            if (blogArticleEntity != null) {
+                BeanUtils.copyProperties(blogArticleEntity, blogArticleVo);
+                byte[] content = StringUtils.isEmpty(blogArticleEntity.getContent()) ? null : blogArticleEntity.getContent();
                 String contentString = JSONUtils.toJSONString(new String(content, "UTF-8"));
-                indexDetailVo.setContent(contentString);
+                blogArticleVo.setContent(contentString);
             }else {
-                indexDetailVo.setTitle("博主努力开发中...");
-                indexDetailVo.setContent("      敬请期待...    ");
+                blogArticleVo.setTitle("博主努力开发中...");
+                blogArticleVo.setContent("      敬请期待...    ");
             }
         } catch (Exception e) {
             log.error("ajaxGetArticleDetail error: {}",e.getMessage());
             throw new RuntimeException();
         }
-        return indexDetailVo;
+        return blogArticleVo;
     }
 
 }

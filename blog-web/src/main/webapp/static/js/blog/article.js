@@ -7,13 +7,13 @@ $(function(){
                 for (var i=0;i<dataList.length;i++){
                     var title = dataList[i].title;
                     var blogDetailId = dataList[i].blogDetailId;
-                    var articleZhai = dataList[i].articleZhai;
+                    var articleSummary = dataList[i].articleSummary;
                     var releaseDate = dataList[i].releaseDate;
                     var editName = dataList[i].editName;
                     var readNumber = dataList[i].readNumber;
                     var label = dataList[i].label;
                     //展示每一篇文章的标题和文章摘要等
-                    showArticle(title,blogDetailId,articleZhai,releaseDate,editName,readNumber,i);
+                    showArticle(title,blogDetailId,articleSummary,releaseDate,editName,readNumber,i);
                     //首页每一篇文章的标签
                     showLabel(label,i);
                 }
@@ -22,7 +22,7 @@ $(function(){
     });
 });
 
-function showArticle(title,blogDetailId,articleZhai,releaseDate,editName,readNumber,i) {
+function showArticle(title,blogDetailId,articleSummary,releaseDate,editName,readNumber,i) {
     var a = "label"+i;
     var hrefs = "/article/detail/blogDetailId/"+blogDetailId;
     var artiches = '<div class="panel panel-default w_article_item">' +
@@ -30,7 +30,7 @@ function showArticle(title,blogDetailId,articleZhai,releaseDate,editName,readNum
         '<a href="#" class="thumbnail w_thumbnail"><img th:src="@{static/img/aticleview.png}" alt="...">\n' +
         '</a></div><h4 class="media-heading">' +
         '<a class="title" href='+hrefs+'  target="_blank">'+title+'</a></h4>\n' +
-        '<p id='+a+'></p><p class="w_list_overview overView"><a href='+hrefs+' target="_blank">' + articleZhai + '</a></p>\n' +
+        '<p id='+a+'></p><p class="w_list_overview overView"><a href='+hrefs+' target="_blank">' + articleSummary + '</a></p>\n' +
         '<p class="count_r"><span class="count"><i class="glyphicon glyphicon-user"></i>' +
         '<a href="#"><span>' + editName + '</span></a></span> <span class="count"><i class="glyphicon glyphicon-eye-open"></i>' +
         '阅读:<span>'+readNumber+'</span></span><span class="count"><i class="glyphicon glyphicon-comment"></i>评论:2</span>' +

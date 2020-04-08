@@ -2,20 +2,16 @@ package she.why.controller;
 
 import com.alibaba.druid.support.json.JSONUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-import she.why.bean.IndexDetailVo;
-import she.why.entity.IndexDetailEntity;
-import she.why.resultUtils.BaseResult;
-import she.why.service.IndexDetailService;
+import she.why.bean.BlogArticleVo;
+import she.why.entity.BlogArticleEntity;
+import she.why.service.BlogArticleService;
 
-import java.lang.ref.PhantomReference;
 import java.util.*;
 
 /**
@@ -27,7 +23,7 @@ import java.util.*;
 public class HomeController {
 
     @Autowired
-    private IndexDetailService indexDetailService;
+    private BlogArticleService blogArticleService;
 
     @GetMapping(value = {"/","/index"})
     public String view(){
@@ -37,25 +33,25 @@ public class HomeController {
 
     @GetMapping(value = "/ajaxGetIndexDetail")
     @ResponseBody
-    public List<IndexDetailVo> getIndexDetailVo(){
-        List<IndexDetailVo> indexDetailVoList = new ArrayList<>();
+    public List<BlogArticleVo> getIndexDetailVo(){
+        List<BlogArticleVo> blogArticleVoList = new ArrayList<>();
         try {
-           List<IndexDetailEntity> indexDetailEntityList = indexDetailService.getIndexDetailEntity();
-           if (!CollectionUtils.isEmpty(indexDetailEntityList)) {
-               for (IndexDetailEntity indexDetailEntity : indexDetailEntityList) {
-                   IndexDetailVo indexDetailVo = new IndexDetailVo();
-                   byte[] articleZhai = StringUtils.isEmpty(indexDetailEntity.getArticleZhai()) ? null : indexDetailEntity.getArticleZhai();
-                   String article = JSONUtils.toJSONString(new String(articleZhai, "UTF-8"));
-                   BeanUtils.copyProperties(indexDetailEntity, indexDetailVo);
-                   indexDetailVo.setArticleZhai(article);
-                   indexDetailVoList.add(indexDetailVo);
+           List<BlogArticleEntity> blogArticleEntityList = blogArticleService.getIndexDetailEntity();
+           if (!CollectionUtils.isEmpty(blogArticleEntityList)) {
+               for (BlogArticleEntity blogArticleEntity : blogArticleEntityList) {
+                   BlogArticleVo blogArticleVo = new BlogArticleVo();
+                   byte[] articleSummary = StringUtils.isEmpty(blogArticleEntity.getArticleSummary()) ? null : blogArticleEntity.getArticleSummary();
+                   String article = JSONUtils.toJSONString(new String(articleSummary, "UTF-8"));
+                   BeanUtils.copyProperties(blogArticleEntity, blogArticleVo);
+                   blogArticleVo.setArticleSummary(article);
+                   blogArticleVoList.add(blogArticleVo);
                }
            }
         } catch (Exception ex) {
            log.error("ajaxGetIndexDetail error: {}",ex.getMessage());
             throw new RuntimeException();
         }
-        return indexDetailVoList;
+        return blogArticleVoList;
     }
 
         @RequestMapping ("/ajaxGetText")

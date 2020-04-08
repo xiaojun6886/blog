@@ -1,4 +1,4 @@
-package she.why.entity;
+package she.why.bean;
 
 import lombok.Data;
 
@@ -9,14 +9,16 @@ import java.sql.Timestamp;
  * Created by xiaojun on 2020/4/2.
  */
 @Data
-public class IndexDetailEntity {
+public class BlogArticleVo {
 
     private BigInteger id;          //主键
     private String blogDetailId;    //文章id
+    private String userId;          //用户id
+    private String userName;        //用户名
     private String title;           //标题
     private String label;           //标签
-    private byte[] articleZhai;      //文章摘要
-    private byte[] content;          //文章内容
+    private String articleSummary;  //文章摘要
+    private String content;         //文章内容
     private String status;          //文章状态 0 正常 1 删除
     private Timestamp releaseDate;  //发布时间
     private String editName;        //编辑者
@@ -25,4 +27,5 @@ public class IndexDetailEntity {
     private String createName;      //创建人
     private Timestamp updateDate;   //更新时间
     private String updateName;      //更新人
+
 }
