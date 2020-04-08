@@ -13,6 +13,7 @@ create table `blog_article` (
  `status` varchar(200) comment "文章状态 0 正常 1 删除",
  `read_number` bigint comment "阅读数",
  `release_date` timestamp comment "发布时间",
+ `edit_name` varchar comment "编辑者",
  `create_date` timestamp comment "创建时间",
  `create_name` varchar(200) comment "创建人",
  `update_date` timestamp comment "更新时间" ,

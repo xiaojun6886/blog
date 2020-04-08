@@ -26,8 +26,8 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
-    @GetMapping(value = {"/","/{label}"})
-    public String view(@PathVariable String label, Model model){
+    @GetMapping(value = {"","/{label}"})
+    public String view(@PathVariable(required = false) String label, Model model){
         model.addAttribute("label",label);
         return "article";
     }
