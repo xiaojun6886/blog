@@ -49,7 +49,7 @@ public class HomeController {
            }
         } catch (Exception ex) {
            log.error("ajaxGetIndexDetail error: {}",ex.getMessage());
-            throw new RuntimeException();
+            throw new RuntimeException(ex);
         }
         return blogArticleVoList;
     }

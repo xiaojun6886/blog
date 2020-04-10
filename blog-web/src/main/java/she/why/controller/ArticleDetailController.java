@@ -46,7 +46,7 @@ public class ArticleDetailController {
             }
         } catch (Exception e) {
             log.error("ajaxGetArticleDetail error: {}",e.getMessage());
-            throw new RuntimeException();
+            throw new RuntimeException(e);
         }
         return blogArticleVo;
     }

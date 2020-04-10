@@ -16,7 +16,6 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Autowired
     private BlogArticleMapper blogArticleMapper;
-
     @Override
     public List<BlogArticleEntity> queryArticleList(String label) {
         List<BlogArticleEntity> blogArticleEntities = blogArticleMapper.queryIndexDetail(label);

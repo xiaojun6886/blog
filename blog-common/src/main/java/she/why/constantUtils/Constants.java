@@ -10,4 +10,7 @@ public class Constants {
 
     public static Integer HTTP_200_CODE = 200;
     public static Integer HTTP_400_CODE = 400;
+
+
+    public static final String REDIS_INCR_PREFIX = "article:readNum:";
 }

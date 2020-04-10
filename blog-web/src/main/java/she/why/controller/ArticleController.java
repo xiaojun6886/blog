@@ -50,7 +50,7 @@ public class ArticleController {
             }
         } catch (Exception ex) {
             log.error("ajaxGetBlogArticle error: {}",ex.getMessage());
-            throw new RuntimeException(ex.getMessage());
+            throw new RuntimeException(ex);
         }
         return blogArticleVoList;
     }

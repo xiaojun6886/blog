@@ -11,4 +11,14 @@
         blog_detail_id = #{blogDetailId}
     </select>
 
+    <update id="updateReadNumToBlogArticle" parameterType="java.lang.String">
+        update
+        blog_article
+        set
+        read_number = #{readNumber}
+        where
+        blog_detail_id = #{blogDetailId}
+
+    </update>
+
 </mapper>
