@@ -1,0 +1,46 @@
+.error-centen {
+    background: #78c5ee;
+    height: 670px;
+    width: 1200px;
+    margin: 40px auto;
+}
+
+.error-box img {
+    margin: auto;
+    display: block;
+}
+
+.error-title {
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+}
+
+.error-black {
+    width: 120px;
+    line-height: 30px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    text-align: center;
+    margin: 40px auto;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}
+
+.error-box {
+    padding-top: 40px;
+}
+
+.error-text {
+    color: #fff;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.error-title_v {
+    color: #000;
+    margin-top: 40px;
+    font-size: 26px;
+    text-align: center;
+}
