@@ -1,7 +1,5 @@
 package she.why.service.impl;
 
-import com.alibaba.druid.sql.visitor.functions.If;
-import org.apache.ibatis.annotations.Case;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -9,9 +7,8 @@ import she.why.entity.UserBlogEntity;
 import she.why.mapper.LoginMapper;
 import she.why.service.LoginService;
 
-import java.sql.Time;
-import java.sql.Timestamp;
 import java.util.Date;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -24,12 +21,20 @@ public class LoginServiceImpl implements LoginService {
     private LoginMapper loginMapper;
 
     @Override
-    public int registerBlog(UserBlogEntity userBlogEntity) {
-        if (userBlogEntity != null) {
-            userBlogEntity.setUserId("PS"+ UUID.randomUUID());
+    public int registerBlog(Map<String,String> params) {
+            UserBlogEntity userBlogEntity = new UserBlogEntity();
+            userBlogEntity.setUserName(StringUtils.isEmpty(params.get("fullName")) ? "" : params.get("fullName"));
+            userBlogEntity.setEmail(StringUtils.isEmpty(params.get("email")) ? "" : params.get("email"));
+            userBlogEntity.setPhoneNum(StringUtils.isEmpty(params.get("phoneNum")) ? "" : params.get("phoneNum"));
+            userBlogEntity.setPassword(StringUtils.isEmpty(params.get("password")) ? "" : params.get("password"));
+            userBlogEntity.setUserId(String.valueOf(UUID.randomUUID()));
             userBlogEntity.setCreateDate(new Date());
             userBlogEntity.setUpdateDate(new Date());
-        }
         return loginMapper.insertRegisterBlog(userBlogEntity);
+    }
+
+    @Override
+    public int queryUser(String fullName) {
+       return loginMapper.selectUser(fullName);
     }
 }
