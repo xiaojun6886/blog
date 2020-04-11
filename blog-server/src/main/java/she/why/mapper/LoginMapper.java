@@ -1,8 +1,7 @@
 package she.why.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import she.why.entity.UserBlogEntity;
-
-import java.util.Map;
 
 /**
  * Created by xiaojun on 2020/4/10.
@@ -10,5 +9,8 @@ import java.util.Map;
 public interface LoginMapper {
 
     int insertRegisterBlog(UserBlogEntity userBlogEntity);
+
+    int selectUser(@Param("fullName") String fullName);
+
 
 }

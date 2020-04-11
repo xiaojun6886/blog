@@ -107,8 +107,8 @@ input:placeholder-shown+label {
 }
 
 .login-wrapper {
-    width: 800px;
-    height: 440px;
+    width: 850px;
+    height: 580px;
     background-color: #fff;
     box-shadow: 0px 2px 50px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
