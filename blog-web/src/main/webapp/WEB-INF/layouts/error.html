@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>
+        <div th:replace="${view} :: title">CAS</div>
+    </title>
+    <link rel="stylesheet" type="text/css" th:href="@{/layouts/css/error.css}"/>
+    <th:block th:replace="${view} :: styles"></th:block>
+</head>
+<body>
+<section class="container-fluid">
+    <div th:replace="${view} :: content"></div>
+</section>
+</body>
+<script th:src="@{/layouts/js/library/jquery.min.js}" type="text/javascript"></script>
+<th:block th:replace="${view} :: scripts"></th:block>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>
+        <div th:replace="${view} :: title">CAS</div>
+    </title>
+    <!-- 静态资源不能以static/public/resource等开头， href属性是为了本地浏览时使用 -->
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/jqgrid/css/trirand/ui.jqgrid-bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap-datetimepicker.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap-dialog.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap-select.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/layouts/css/public.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/layouts/css/entry.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/layouts/css/font-icon/iconfont.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/layouts/css/plugin/select2.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/layouts/css/layout.css}"/>
+    <th:block th:replace="${view} :: styles"></th:block>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<section class="section">
+    <div th:replace="${view} :: content"></div>
+</section>
+<div th:replace="fragments/common :: common"></div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+<script id="front-agent" th:if="${monitorEnable == true && monitorUrl != null && monitorUrl != ''}" th:src="@{${monitorUrl}}"></script>
+<script th:src="@{/layouts/js/library/jquery.min.js}" type="text/javascript"></script>
+<script th:src="@{/layouts/js/layout.js}" type="text/javascript"></script>
+<script th:src="@{/layouts/js/distpicker.data.js}" type="text/javascript"></script>
+<script th:src="@{/layouts/js/distpicker.js}" type="text/javascript"></script>
+<script th:src="@{/bootstrap/js/ajax-bootstrap-select.js}" type="text/javascript"></script>
+<script th:src="@{/layouts/js/plugin/jquery.form.js}" type="text/javascript"></script>
+<script th:src="@{/layouts/js/plugin/moment.js}" type="text/javascript"></script>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script>
+<script th:src="@{/bootstrap/jqgrid/js/i18n/grid.locale-cn.js}" type="text/javascript"></script>
+<script th:src="@{/bootstrap/jqgrid/js/i18n/grid.locale-en.js}" type="text/javascript"></script>
+<script th:src="@{/bootstrap/jqgrid/js/jquery.jqGrid.js}" type="text/javascript"></script>
+<script th:src="@{/bootstrap/js/bootstrap-datetimepicker.min.js}" type="text/javascript"></script>
+<script th:src="@{/bootstrap/js/bootstrap-dialog.min.js}" type="text/javascript"></script>
+<script th:src="@{/bootstrap/js/bootstrap-datetimepicker.zh-CN.js}" type="text/javascript"></script>
+<script th:src="@{/bootstrap/js/bootstrap-select.js}" type="text/javascript"></script>
+<script th:src="@{/layouts/js/plugin/jquery.validate.js}" type="text/javascript"></script>
+<script th:src="@{/layouts/js/plugin/select2.js}" type="text/javascript"></script>
+<script th:src="@{/layouts/js/plugin/i18n/zh-CN.js}" type="text/javascript"></script>
+<script th:src="@{/layouts/js/public.js}" type="text/javascript"></script>
+<script th:src="@{/layouts/js/global.js}" type="text/javascript"></script>
+<script th:src="@{/layouts/js/i18n/header.js}" type="text/javascript"></script>
+<script th:src="@{/layouts/js/i18n/jquery.cookie.js}" type="text/javascript"></script>
+<!--<script th:src="@{/layouts/js/i18n/jquery.i18n.js}" type="text/javascript"></script>-->
+<!--模板引擎 兼容ie8补丁-->
+<!--[if IE 8]>
+<script th:src="@{/layouts/js/ie8/es5-shim.min.js}" type="text/javascript"></script>
+<script th:src="@{/layouts/js/ie8/es5-sham.min.js}" type="text/javascript"></script>
+<script th:src="@{/layouts/js/ie8/json3.min.js}" type="text/javascript"></script>
+<![endif]-->
+<script th:src="@{/layouts/js/plugin/template-util.js}" type="text/javascript"></script>
+<script th:src="@{/layouts/js/plugin/template-web.js}" type="text/javascript"></script>
+<script type="text/javascript" th:inline="javascript">
+
+</script>
+<th:block th:replace="${view} :: scripts"></th:block>
+</html>
