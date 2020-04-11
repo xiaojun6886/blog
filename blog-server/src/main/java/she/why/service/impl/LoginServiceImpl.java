@@ -37,4 +37,9 @@ public class LoginServiceImpl implements LoginService {
     public int queryUser(String fullName) {
        return loginMapper.selectUser(fullName);
     }
+
+    @Override
+    public int loginUser(String userName, String password) {
+        return loginMapper.queryUserInfo(userName,password);
+    }
 }

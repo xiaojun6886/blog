@@ -69,4 +69,19 @@ public class LoginController {
             throw new RuntimeException(ex);
         }
     }
+
+    @RequestMapping(value = "/ajaxLoginIndex")
+    @ResponseBody
+    public BaseResult ajaxLoginIndex(String userName,String password) {
+        try {
+            int count = loginService.loginUser(userName, password);
+            if (count > 0) {
+                return ResultUtils.success();
+            }
+            return ResultUtils.error();
+        }catch (Exception ex) {
+            log.error("ajaxLoginIndex err: ",ex);
+            throw new RuntimeException(ex);
+        }
+    }
 }

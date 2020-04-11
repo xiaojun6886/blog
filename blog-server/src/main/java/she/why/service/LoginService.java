@@ -11,4 +11,6 @@ public interface LoginService {
 
     int queryUser(String fullName);
 
+    int loginUser(String userName,String password);
+
 }

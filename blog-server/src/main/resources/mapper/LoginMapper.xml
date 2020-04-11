@@ -32,4 +32,15 @@
         where
         user_name = #{fullName}
     </select>
+
+    <select id="queryUserInfo" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select
+        count(1)
+        from
+        user_blog
+        where
+        user_name = #{userName}
+        and
+        password = #{password}
+    </select>
 </mapper>

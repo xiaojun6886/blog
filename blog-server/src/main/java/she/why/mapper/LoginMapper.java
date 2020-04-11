@@ -12,5 +12,7 @@ public interface LoginMapper {
 
     int selectUser(@Param("fullName") String fullName);
 
+    int queryUserInfo(@Param("userName") String userName,@Param("password") String password);
+
 
 }
