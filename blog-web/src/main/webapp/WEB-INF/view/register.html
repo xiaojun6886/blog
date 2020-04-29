@@ -7,6 +7,7 @@
 <link rel="stylesheet" th:href="@{/static/css/style.css}">
 </head>
 <link rel="stylesheet" type="text/css" th:href="@{/static/css/public.css}">
+<link th:href="@{/static/css/register.css}" rel="stylesheet" type="text/css"/>
 <script th:src="@{/static/js/jquery.min.js}"></script>
 <script th:src="@{/static/js/jquery.js}"></script>
 <script th:src="@{/static/js/bootstrap.min.js}"></script>
@@ -24,27 +25,39 @@
         <div class="h2">注册</div>
         <div class="form-group">
                 <input type="text" id="full-name" placeholder="用户名">
-            <label for="full-name">用户名</label>
+                <p class="tip4">请输入用户名</p>
+                <p class="tip9">此用户名已存在，请重新输入</p>
+                <label for="full-name">用户名</label>
         </div>
         <div class="form-group">
             <input type="text" id="email" placeholder="邮箱">
+            <p class="tip6">请输入邮箱</p>
+            <p class="tip10">邮箱格式不正确</p>
             <label for="Email">邮箱</label>
         </div>
         <div class="form-group">
             <input type="text" id="phoneNum" placeholder="手机号">
+            <p class="tip7">请输入手机号</p>
+            <p class="tip11">手机号有误！请重新输入</p>
             <label for="phoneNum">手机号</label>
         </div>
         <div class="form-group">
             <input type="password" id="password" placeholder="密码(长度为8~16位字母和数字组合)">
+            <p class="tip5">请输入密码</p>
+            <p class="tip12">您的密码复杂度太低（密码中必须包含字母、数字）</p>
             <label for="Password">密码</label>
         </div>
         <div class="form-group">
             <input type="password" id="rePassword" placeholder="请再次输入密码">
+            <p class="tip8">请重新输入密码</p>
+            <p class="tip13">两次输入密码不一致，请重新输入！</p>
             <label for="rePassword">密码</label>
         </div>
         <div class="checkbox-container">
             <input type="checkbox" id="agree">
-            <div class="text-checkbox"><label for="agree" id="agreeRegister">同意注册协议</label></div>
+            <div class="text-checkbox"><label for="agree" id="agreeRegister">同意注册协议</label>
+                <p class="tip14">请同意注册协议</p>
+            </div>
         </div>
         <div class="button-area">
             <button class="btn btn-secondary" onclick="backLogin()">返回登录页面</button>

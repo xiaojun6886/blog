@@ -9,8 +9,13 @@ h1.t_nav span{float:right; color:#999}
 .about h2{ font-size:22px; font-family: 'Architects Daughter', cursive; margin-bottom:20px}
 .about p{ margin-bottom:20px}
 .about_c,.about{margin:20px 0}
+.about_c,.error{margin:20px 133px}
 .about ul{ width:90%}
 .about_c{ padding:10px 0 0 10px; color:#999; line-height:26px; }
 .about_c img{ margin:5px 0}
 .about_c span{ color:#19A566}
 a.blog_link{ color:#1CA368; margin:0 20px}
+.error .button_error{
+    margin-left: 215px;
+    color: blue;
+}

@@ -51,11 +51,11 @@ create table `message_board_detail` (
  */
 create table `user_blog` (
  `id` bigint  NOT NULL AUTO_INCREMENT,
- `user_id` int (20) comment "用户id",
+ `user_id` varchar (100) comment "用户id",
  `user_name` varchar(200) comment "用户名",
  `password` varchar(200) comment "密码",
  `email` varchar(200) comment "邮箱",
- `phoneNum` varchar(200) comment "手机号",
+ `phone_num` varchar(200) comment "手机号",
  `create_date` timestamp comment "创建时间",
  `update_date` timestamp comment "更新时间" ,
  `update_name` varchar(200) comment "更新人",

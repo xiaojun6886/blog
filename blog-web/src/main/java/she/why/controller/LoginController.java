@@ -1,16 +1,22 @@
 package she.why.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+import she.why.bean.UserBlogVo;
 import she.why.resultUtils.BaseResult;
 import she.why.resultUtils.ResultUtils;
 import she.why.service.LoginService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 /**
@@ -72,13 +78,18 @@ public class LoginController {
 
     @RequestMapping(value = "/ajaxLoginIndex")
     @ResponseBody
-    public BaseResult ajaxLoginIndex(String userName,String password) {
+    public BaseResult ajaxLoginIndex(String userName, String password) {
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpSession session = request.getSession();
+
         try {
-            int count = loginService.loginUser(userName, password);
-            if (count > 0) {
+            BaseResult baseResult = loginService.loginUser(userName, password);
+            if ("200".equals(baseResult.getCode())) {
+                Object model = baseResult.getModel();
+                session.setAttribute("userInfo",model);
                 return ResultUtils.success();
             }
-            return ResultUtils.error();
+            return ResultUtils.error(baseResult);
         }catch (Exception ex) {
             log.error("ajaxLoginIndex err: ",ex);
             throw new RuntimeException(ex);

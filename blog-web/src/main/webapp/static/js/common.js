@@ -53,3 +53,9 @@ $(function () {
     })
 });
 
+function logoMenu() {
+    window.location.href = "/login"
+}
+function registerMenu() {
+    window.location.href = "/login/register"
+}

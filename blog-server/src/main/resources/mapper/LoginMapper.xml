@@ -33,14 +33,21 @@
         user_name = #{fullName}
     </select>
 
-    <select id="queryUserInfo" parameterType="java.lang.String" resultType="java.lang.Integer">
+    <select id="queryUserInfo" parameterType="java.util.Map" resultType="she.why.entity.UserBlogEntity">
         select
-        count(1)
+        *
         from
         user_blog
-        where
-        user_name = #{userName}
-        and
-        password = #{password}
+        <where>
+        <if test="map.userName != null and map.userName != ''">
+          and user_name = #{map.userName}
+        </if>
+        <if test="map.email != null and map.email != ''">
+          and  email = #{map.email}
+        </if>
+        <if test="map.phoneNum != null and map.phoneNum != ''">
+          and  phone_num = #{map.phoneNum}
+        </if>
+        </where>
     </select>
 </mapper>

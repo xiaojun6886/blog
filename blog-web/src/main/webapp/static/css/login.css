@@ -4,11 +4,13 @@ body { height: 100%; background: #fff url(/static/images/backgroud.png) 50% 50% 
 .dowebok { position: absolute; left: 50%; top: 50%; width: 430px; height: 550px; margin: -300px 0 0 -215px; border: 1px solid #fff; border-radius: 20px; overflow: hidden;}
 .logo { width: 104px; height: 104px; margin: 50px auto 80px; background: url(/static/images/login.png) 0 0 no-repeat; }
 .form-item { position: relative; width: 360px; margin: 0 auto; padding-bottom: 30px;}
-.form-item input { width: 288px; height: 48px; padding-left: 70px; border: 1px solid #fff; border-radius: 25px; font-size: 18px; color: #fff; background-color: transparent; outline: none;}
+.form-item input { width: 340px; height: 48px; padding-left: 70px; border: 1px solid #fff; border-radius: 25px; font-size: 18px; color: #fff; background-color: transparent; outline: none;}
 .form-item button { width: 360px; height: 50px; border: 0; border-radius: 25px; font-size: 18px; color: #1f6f4a; outline: none; cursor: pointer; background-color: #fff; }
 #username { background: url(/static/images/emil.png) 20px 14px no-repeat; }
 #password { background: url(/static/images/password.png) 23px 11px no-repeat; }
-.tip { display: none; position: absolute; left: 20px; top: 52px; font-size: 14px; color: #f50; }
+.tip1 { display: none; position: absolute; left: 20px; top: 52px; font-size: 14px; color: #f50; }
+.tip2 { display: none; position: absolute; left: 20px; top: 52px; font-size: 14px; color: #f50; }
+.tip3 { display: none; position: absolute; left: 162px; top: 187px; font-size: 18px; color: #f50; }
 .reg-bar { width: 360px; margin: 20px auto 0; font-size: 14px; overflow: hidden;}
 .reg-bar a { color: #fff; text-decoration: none; }
 .reg-bar a:hover { text-decoration: underline; }

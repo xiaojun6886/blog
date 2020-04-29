@@ -1,5 +1,7 @@
 package she.why.service;
 
+import she.why.resultUtils.BaseResult;
+
 import java.util.Map;
 
 /**
@@ -11,6 +13,6 @@ public interface LoginService {
 
     int queryUser(String fullName);
 
-    int loginUser(String userName,String password);
+    BaseResult loginUser(String userName, String password);
 
 }

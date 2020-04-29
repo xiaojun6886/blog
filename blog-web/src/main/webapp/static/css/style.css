@@ -150,7 +150,7 @@ input:placeholder-shown+label {
     position: absolute;
     top: 0;
     right: 0;
-    width: 400px;
+    width: 405px;
     -webkit-transform: translateX(400px) translateZ(0);
     transform: translateX(400px) translateZ(0);
     transition: all 770ms cubic-bezier(0.51, 0.04, 0.12, 0.99);
