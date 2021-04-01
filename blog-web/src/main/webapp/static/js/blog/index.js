@@ -79,3 +79,17 @@ function unqiue3(array){
     return myresult;
 }
 
+function elasticSearch() {
+
+    var searchHome = $("#searchHome").val();
+
+    $.ajax({
+        url:"/ajaxGetSearchHome?"+searchHome,
+        contentType:"application/json",
+        success:function (datas) {
+
+        }
+    })
+
+}
+

@@ -10,4 +10,6 @@ import java.util.List;
 public interface BlogArticleService {
 
     List<BlogArticleEntity> getIndexDetailEntity(String label);
+
+    List<String> getSearchHome(String searchHome);
 }

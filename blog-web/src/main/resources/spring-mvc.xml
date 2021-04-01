@@ -31,4 +31,16 @@
         <property name="templateEngine" ref="templateEngine"/>
         <property name="characterEncoding" value="UTF-8"/>
     </bean>
+
+    <!-- 5.权限拦截器 -->
+    <mvc:interceptors>
+        <!-- 校验是否登录了该管理系统的拦截器 -->
+        <mvc:interceptor>
+            <!-- 定义拦截的路由，shopadmin包下的所有Controller -->
+            <mvc:mapping path="/*" />
+            <!-- 拦截方法 -->
+            <bean class="she.why.interceptor.HandlerInterceptorAdapter"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>

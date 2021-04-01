@@ -8,15 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 import she.why.bean.BlogArticleVo;
 import she.why.entity.BlogArticleEntity;
 import she.why.service.BlogArticleService;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by xiaojun on 2020/3/31.
@@ -31,14 +28,13 @@ public class HomeController {
 
     @GetMapping(value = {"/","/index"})
     public String view(){
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        HttpSession session = request.getSession();
-        if (session.getAttribute("userInfo") == null){
-            return "error";
-        }
         return "index";
     }
 
+    @GetMapping(value = {"/error"})
+    public String error(){
+        return "error";
+    }
 
     @GetMapping(value = "/ajaxGetIndexDetail")
     @ResponseBody
@@ -63,9 +59,16 @@ public class HomeController {
         return blogArticleVoList;
     }
 
-        @RequestMapping ("/ajaxGetText")
-        @ResponseBody
-        public String getText( @RequestParam String usertext ){
+    @RequestMapping ("/ajaxGetText")
+    @ResponseBody
+    public String getText( @RequestParam String usertext ){
                 return "";
         }
+
+     @RequestMapping("/ajaxGetSearchHome")
+     @ResponseBody
+     public List<String> ajaxGetSearchHome(String searchHome) {
+         final List<String> searchHomeList = blogArticleService.getSearchHome(searchHome);
+            return searchHomeList;
+     }
 }

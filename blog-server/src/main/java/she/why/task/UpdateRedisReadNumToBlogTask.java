@@ -23,19 +23,19 @@ public class UpdateRedisReadNumToBlogTask {
     private TaskService taskService;
 
     //每10秒更新一次
-//    @Scheduled(cron="0/10 * *  * * ? ")
-//    public void testTask(){
-//        log.info("开始执行更新访问量任务...");
-//        Set<String> keys = redisTemplate.keys(Constants.REDIS_INCR_PREFIX + "*");
-//        int count = 0;
-//        for (String data : keys) {
-//            String readNum = redisTemplate.opsForValue().get(data);
-//            String articleId = StringUtils.substringAfter(data, Constants.REDIS_INCR_PREFIX);
-//           int i = taskService.updateReadNumByBlogDetailId(articleId, readNum);
-//           if (i>0){
-//               count++;
-//           }
-//        }
-//        log.info("从redis更新文章访问量总条数：{}",count);
-//    }
+    @Scheduled(cron="0/10 * *  * * ? ")
+    public void testTask(){
+        log.info("开始执行更新访问量任务...");
+        Set<String> keys = redisTemplate.keys(Constants.REDIS_INCR_PREFIX + "*");
+        int count = 0;
+        for (String data : keys) {
+            String readNum = redisTemplate.opsForValue().get(data);
+            String articleId = StringUtils.substringAfter(data, Constants.REDIS_INCR_PREFIX);
+           int i = taskService.updateReadNumByBlogDetailId(articleId, readNum);
+           if (i>0){
+               count++;
+           }
+        }
+        log.info("从redis更新文章访问量总条数：{}",count);
+    }
 }

@@ -1,5 +1,10 @@
 $(function () {
-
+    document.onkeydown = function(e){
+        var ev = document.all ? window.event : e;
+        if(ev.keyCode==13) {// 如（ev.ctrlKey && ev.keyCode==13）为ctrl+Center 触发
+            submitBlog();
+        }
+    }
 });
 function submitBlog() {
     var userName = $("#username").val();
@@ -21,7 +26,7 @@ function submitBlog() {
         contentType:"application/x-www-form-urlencoded;charset=UTF-8",
         success:function (data) {
             if (data.code == "200") {
-                $.reloadMsg("登录成功！点击跳转至首页")
+                loginIndexHtml();
             }else {
                 $("#loginError").html(data.model.model.msg);
                 $(".tip3").show();
@@ -30,6 +35,7 @@ function submitBlog() {
         }
     })
 }
+
 
 //登录成功后跳转至首页
 function loginIndexHtml() {
